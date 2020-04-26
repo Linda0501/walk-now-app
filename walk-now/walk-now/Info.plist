@@ -2,6 +2,11 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>googlechromes</string>
+		<string>comgooglemaps</string>
+	</array>
 	<key>NSHealthShareUsageDescription</key>
 	<string>This App uses HealthKit to get Heart Rate from patient for Clinical Research Trial. Your Heart Rate will be stored in your secure, personal, Clinical Trial record and will be used to further medical innovation.&quot;; NSHealthUpdateUsageDescription = &quot;This App shares Heart Rate with HealthKit</string>
 	<key>NSHealthUpdateUsageDescription</key>
