@@ -1,6 +1,0 @@
-framework module Pods_walk_now_walk_nowUITests {
-  umbrella header "Pods-walk:now-walk:nowUITests-umbrella.h"
-
-  export *
-  module * { export * }
-}
