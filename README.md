@@ -4,6 +4,10 @@ Repository for the walk:now project for the hack:now hackathon, April 24-26, 202
 
 Hackers: Linda Deng, Rachel Li, Megan Zhu
 
+## App Screenshots
+
+<img src="images/img6.png">
+
 ## Inspiration
 
 Given the COVID-19 situation, many of us are unable to go outside and enjoy a walk like we normally would. We are limited to our immediate neighborhood and unable to explore new places; we also miss familiar places such as our college campuses. Many people also tend to be physically inactive while sheltering in place, with very low step counts. 
