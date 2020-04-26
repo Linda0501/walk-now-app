@@ -10,13 +10,16 @@ import HealthKit
 
 class FirstViewController: UIViewController {
 
-    var available = 0.0
-    var total = 0.0
+    public var available = 0.0
+    var total = 10
     var lastDate = Date() 
 
     let healthKitStore: HKHealthStore = HKHealthStore()
+    @IBOutlet weak var availableSteps: UILabel!
+    @IBOutlet weak var totalSteps: UILabel!
 
-    @IBAction func authoriseHealthKitAccess(_ sender: Any) {
+    //@IBAction
+    func authoriseHealthKitAccess() {
         let healthKitTypes: Set = [
             // access step count
             HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.stepCount)!
@@ -82,7 +85,7 @@ class FirstViewController: UIViewController {
 //        self.healthKitStore.execute(query)
 //    }
     
-    func getTodaysSteps(completion: @escaping (Double) -> Void) {
+    func getTodaysSteps(completion: @escaping (Int) -> Void) {
         
         let stepsQuantityType = HKQuantityType.quantityType(forIdentifier: .stepCount)!
         
@@ -91,24 +94,24 @@ class FirstViewController: UIViewController {
         let predicate = HKQuery.predicateForSamples(withStart: startOfDay, end: now, options: .strictStartDate)
         
         let query = HKStatisticsQuery(quantityType: stepsQuantityType, quantitySamplePredicate: predicate, options: .cumulativeSum) { (_, result, error) in
-            var resultCount = 0.0
+            //var resultCount = 0.0
             guard let result = result else {
                 print("Failed to fetch steps rate")
-                completion(resultCount)
+                completion(MyVariables.totalSteps)
                 return
             }
             if let sum = result.sumQuantity() {
-                resultCount = sum.doubleValue(for: HKUnit.count())
+                MyVariables.totalSteps += Int(sum.doubleValue(for: HKUnit.count()))
             }
             
             DispatchQueue.main.async {
-                completion(resultCount)
+                completion(MyVariables.totalSteps)
             }
         }
         healthKitStore.execute(query)
     }
 
-    @IBOutlet weak var totalSteps: UILabel!
+    
     @IBAction func getTotalSteps(_ sender: Any) {
         getTodaysSteps { (result) in
             print("\(result)")
@@ -117,18 +120,34 @@ class FirstViewController: UIViewController {
             }
         }
     }
+    
+    
+    
     override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-//        authorizeHealthKitinApp()
-//
-//    }
-//    getSteps { (result) in
-//        print("\(result)")
-//        DispatchQueue.main.async {
-//            self.totalSteps.text = "\(result)"
-//        }
+            super.viewDidLoad()
+            // Do any additional setup after loading the view.
+        
+        authoriseHealthKitAccess()
+        
+        }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        getTodaysSteps { (result) in
+            print("\(result)")
+            DispatchQueue.main.async {
+                self.totalSteps.text = "\(result)"
+            }
+        }
+        DispatchQueue.main.async {
+            self.availableSteps.text = String(MyVariables.totalSteps - MyVariables.usedSteps)//want to display total steps
+        }
     }
     
+}
+struct MyVariables {
+    static var totalSteps = 20
+    static var usedSteps = 0
 }
 
