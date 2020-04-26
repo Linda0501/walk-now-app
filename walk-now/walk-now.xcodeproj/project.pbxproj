@@ -14,6 +14,7 @@
 		D6D95ED42454F09D00224EE5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6D95ED22454F09D00224EE5 /* Main.storyboard */; };
 		D6D95ED62454F09F00224EE5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6D95ED52454F09F00224EE5 /* Assets.xcassets */; };
 		D6D95ED92454F09F00224EE5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6D95ED72454F09F00224EE5 /* LaunchScreen.storyboard */; };
+		D6D95EE32454FACE00224EE5 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6D95EE22454FACE00224EE5 /* HealthKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		D6D95ED52454F09F00224EE5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D6D95ED82454F09F00224EE5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D6D95EDA2454F09F00224EE5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D6D95EE02454FACD00224EE5 /* walk-now.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "walk-now.entitlements"; sourceTree = "<group>"; };
+		D6D95EE22454FACE00224EE5 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +36,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6D95EE32454FACE00224EE5 /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +48,7 @@
 			children = (
 				D6D95EC92454F09D00224EE5 /* walk-now */,
 				D6D95EC82454F09D00224EE5 /* Products */,
+				D6D95EE12454FACE00224EE5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,6 +63,7 @@
 		D6D95EC92454F09D00224EE5 /* walk-now */ = {
 			isa = PBXGroup;
 			children = (
+				D6D95EE02454FACD00224EE5 /* walk-now.entitlements */,
 				D6D95ECA2454F09D00224EE5 /* AppDelegate.swift */,
 				D6D95ECC2454F09D00224EE5 /* SceneDelegate.swift */,
 				D6D95ECE2454F09D00224EE5 /* FirstViewController.swift */,
@@ -68,6 +74,14 @@
 				D6D95EDA2454F09F00224EE5 /* Info.plist */,
 			);
 			path = "walk-now";
+			sourceTree = "<group>";
+		};
+		D6D95EE12454FACE00224EE5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D6D95EE22454FACE00224EE5 /* HealthKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -288,6 +302,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "walk-now/walk-now.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NA2W5ZYVD8;
 				INFOPLIST_FILE = "walk-now/Info.plist";
@@ -306,6 +321,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "walk-now/walk-now.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NA2W5ZYVD8;
 				INFOPLIST_FILE = "walk-now/Info.plist";
