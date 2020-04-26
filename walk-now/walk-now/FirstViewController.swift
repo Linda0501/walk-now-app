@@ -101,7 +101,7 @@ class FirstViewController: UIViewController {
                 return
             }
             if let sum = result.sumQuantity() {
-                MyVariables.totalSteps += Int(sum.doubleValue(for: HKUnit.count()))
+                MyVariables.totalSteps = Int(sum.doubleValue(for: HKUnit.count()))
             }
             
             DispatchQueue.main.async {
@@ -147,7 +147,7 @@ class FirstViewController: UIViewController {
     
 }
 struct MyVariables {
-    static var totalSteps = 20
+    static var totalSteps = 0
     static var usedSteps = 0
 }
 
